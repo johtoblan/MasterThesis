@@ -18,7 +18,7 @@
 \usepackage{geometry}
 \usepackage{emptypage}
 \usepackage[parfill]{parskip} % removes indentation of sectioning.
-
+\usepackage{comment}
 \linespread{1.5} % Line spacing
 \newgeometry{top=2.5cm, bottom=2.5cm, left=3.0cm, right=2.5cm}
 

@@ -1,14 +1,12 @@
-% Commands displaying vaious info (customize to your liking).
-%\newcommand{\mytitle}{Improve stability data and methods for calculating stability parameters for local air pollution dispersion models}
+\ProcessOptions \relax
 
-\newcommand{\mytitle}{Title}
-\newcommand{\myundertitle}{Subtitle}
-% \\Is it feasible to predict cloud cover based on temperature, pressure and cloud cover?
-% Determining the (regional?) predictability of total cloud cover based on ERA5 reanalysis data
+% Commands displaying vaious info (customize to your liking).
+\newcommand{\mytitle}{Improvements to the operational Helicopter Triggered Lightning forecast}
+\newcommand{\myundertitle}{Utilizing ERA5 data to investigate cases of reported lightning to aircraft incidents in Norway and improving forecasting}
 \newcommand{\myauthor}{Johannes Tobiassen Langvatn}
 \newcommand{\mysupervisors}{Supervisors (optional)} % add additional supervisors by \\ sup3 \\ sup4
 \newcommand{\mythesis}{Thesis submitted for the degree of \\
-Master of  \\
+Master of science in Meteorology \\
 60 Credits}
 \newcommand{\mydepartment}{Department of Geoscience}
 \newcommand{\myfaculty}{Faculty of Mathematics and Natural Sciences}
@@ -23,15 +21,19 @@ without permission.}
 
 % Use vspace to adjust the vertical spacing between the text of the front page.
 \newcommand{\myfrontpage}{
+
+
   \begin{titlepage}
-    \centering
-    \fontfamily{ptm}\fontsize{17.28}{20pt}\selectfont
+    \centering  
+    \fontfamily{ptm}\fontsize{16}{19pt}\selectfont
+        \null\par
+    \vspace*{-2cm} 
     {\fontsize{24}{28pt}\selectfont \mytitle}    
     \vspace{.5cm}
-    
+
     \myundertitle
     \vspace{.5cm}
-    
+
     \myauthor
     \vspace{.5cm}
     
@@ -74,7 +76,7 @@ without permission.}
     \def \and {, }
     \textbf{\textcopyright~\the\year~\myauthor} 
     \newline \newline
-    \leavevmode\mytitle  \myundertitle 
+    \leavevmode\mytitle : \myundertitle 
     \newline \newline
     \mypublished 
     \newline \newline

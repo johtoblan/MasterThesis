@@ -1,0 +1,23 @@
+\setcounter{chapter}{2}
+\chapter{Methods}
+
+\section{Models}
+
+\subsection{\acrfull{nwp} - model}
+An \acrshort{nwp}-model collects observational data for the gridded model area to get the best estimate to start a model run. When the model is ready to be run, it advances in time, calculating the state of the atmosphere for the next timestep, the state of the atmosphere is then recorded for different times (hourly for \acrshort{meps} and may then be processed. Operational \acrshort{nwp}-models are often updated when advances are ready, so models for different days can be using different physics schema. Modern \acrshort{nwp}-models also utilize pertubated ensemble-members. This is done by having a control run use the collected observational data, and then doing small (inside of the observational uncertainty range) changes or pertubations to the other runs. Each run is then a member in the whole ensemble, and the ensemble as a whole is meant to be the possible outcomes from a observed starting point.
+
+\subsection{Reanalysis - model}
+A reanalysis differs from an operational \acrshort{nwp}-model in that it uses a fixed version of a \acrshort{nwp}-model on historical weather observations. This is done to create the best possible historical weather data, by turning point and field observations into a complete gridded archive of historical weather. Reanalysis models may also be run with pertubated ensembles, to capture variation between the times when observational data is concidered.
+
+\section{Data from AVINOR}
+I have received a dataset from AVINOR, which I have gridded based on the pilots’ reports on position during incidents. This data included all reports on incidents received by AVINOR pertaining to lightning. I have filtered out cases where there was observed lightning in the area and not striking the aircraft, to prevent warm-season lightning to muddle the data. This dataset includes both fixed-wing and helicopters. 
+
+\section{\acrfull{era5}}
+The \acrshort{era5} dataset is created by the \acrfull{ecmwf} and provides hourly data, in $31x31$km grids, with $137$ vertical model-levels. The data ranges from $1979$ to and including $2019$ (It is continually updated as I write this, so it is probably updated beyond 2019). The observational data is assimilated in 12-hour windows \cite{era5}
+I will be utilizing the \acrshort{era5} dataset to create a set of climatologies and case-based atmospheric conditions, using the data reported on pressure levels (see Appendix A about model level/pressure level discussion). 
+
+\section{\acrfull{meps}}
+The operational\footnote{Note that in February 2020, both the format and frequency of model runs for \acrshort{meps} was changed considerably, operational here refers to the model-runs from 2016-2019} model used for the cases looked into in this thesis is hourly gridded $2.5x2.5$km grids with $67$-vertical model levels using the harmonie-arome (\cite{aromehirlam}). Archived data for this model-setup is available from 2016 to 2019.
+
+To investigate and quantify the different parts of the operational forecast, I have created a Python class that relies on the Python-module xarray to perform different post-prossesing algorithms. During my preliminary testing of this tool, I discovered a bug in the operational \acrshort{htl}-forecast. I will therefore also look into the effects of this bug for the forecast as a whole and in special cases (Possible over-assessing risk off northern-faced coastal areas). Further, this tool gives me the possibility to produce forecasts for larger ensembles and I will therefore investigate possible improvements done by using the whole ensemble and not just the control run.
+

@@ -1,27 +1,22 @@
-\chapter{Introduction} \label{ch:introduction}
-Citing \cite{einstein} before it shows up in the bibliography. Referencing figure \ref{fig:uio_logo}. You can reference the chapters like this \ref{ch:introduction} and sections like this \ref{sec:section}.
+\chapter{Introduction and Motivation}\label{ch:introduction}
+Helicopters are a vital part of transport of personnel to offshore installations off of the Norwegian coast. \includecomment{Kanskje noe statistikk om flytimer med helikopter?} Offshore personnel report fear of being involved in helicopter accidents (Ref).
 
-\newpage
-\section{Section title} \label{sec:section}
-Example list:
-\begin{enumerate}
-    \item Element 1
-    \item Element 2
-\end{enumerate}
+Helicopters flying offshore in the higher latitudes of the northern hemisphere, are sometimes hit by lightning strikes. This can cause accidents in different ways. These accidents include events when rotors have been destroyed, as in the case of Flight 56 in 1995 (\cite{flight56}). Sometimes a breakdown of the structural integrity of a rotor by a lightning strike is not discovered right away, but can still be serious. For example; A lightning strike in 1999 is believed to have caused a fatal crash in 2002 (\cite{laterhit}). 
 
-\begin{figure} 
-    \centering
-    \includegraphics[scale=2.5]{DUO_UiO_segl.png}
-    \caption{Example figure. UiO's logo.}
-    \label{fig:uio_logo}
-\end{figure}
+This phenomenon happens only in wintertime, and has been called \acrfull{htl}, since there can be little to no lightning activity before the helicopter enters the area, and the helicopter then triggers a strike
 
-\newpage 
+The study of \acrshort{htl} has a long history, but had its peak around the turn of the century, due to two helicopter accidents related to lightning (1995 and 2002). Since then, there have been improvements in observational assimilation and numerical weather prediction models. I will therefore in this study use the \acrfull{era5} dataset to investigate the atmospheric conditions during helicopter triggered lightning incidents and a similar phenomenon \acrfull{fwtl}. I will also use the operational \acrfull{meps} model to investigate cases in the near-past (after november 2016, which was the start of \acrshort{meps}), and utilize the operational \acrshort{meps}-ensemble members to see if this gives improved forecast ability.
 
-\subsection{Sub section title}
-Example lists:
+I will use this to improve or strengthen the belief in the current operational \acrshort{htl} forecast. And I will also investigate a bug found in the operational forecast where the accumulated precipitation, and not the intended hourly precipitation was used in the operational forecast.
+
+These are the questions I attempt to answer:
 \begin{itemize}
-    \item Item 1
-    \item Item 2
+    \item Is Helicopter Triggered Lightning forecasted well?
+    \item What conditions are present for an \acrshort{htl}?
+    \item What conditions are present for an \acrshort{fwtl}-event and can \acrshort{fwtl} be used as a proxy for \acrshort{htl}? 
+    \item Can the forecast be improved with using the whole ensemble?
 \end{itemize}
+
+
+
 
