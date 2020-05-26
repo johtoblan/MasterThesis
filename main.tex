@@ -1,8 +1,7 @@
 \documentclass[final]{MSthesis}
+
 % subclass of the document class report.
-
 \begin{document}
-
 % Formatting titles and spaces 
 
 % Originally its
@@ -33,46 +32,45 @@
 \tableofcontents
 
 % Clear double page --> New chapers or listings begin on odd numbered pages.
-\cleardoublepage
+%\cleardoublepage
 
 \listoffigures
 \addcontentsline{toc}{chapter}{\listfigurename}
-\cleardoublepage
+%\cleardoublepage
 
 % List of tables 
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename} % add list of tables to contents line
-\cleardoublepage
+%\cleardoublepage
 
 % List of acronyms
 \input{acronyms.tex}
-\cleardoublepage
+%\cleardoublepage
 
 \pagenumbering{arabic} % page numbering to arabic
 \input{./Chapter1_Intro/Introduction}
-\cleardoublepage
-
+%\cleardoublepage
 \input{./Chapter2_Theory/Theory}
-\cleardoublepage
+%\cleardoublepage
 
 \input{./Chapter3_Methods/Methods}
-\cleardoublepage
+%\cleardoublepage
 
 \input{./Chapter4_Results/Results}
-\cleardoublepage
+%\cleardoublepage
 
 \input{./Chapter5_Conclusions/Conclusions}
-\cleardoublepage
+%\cleardoublepage
 
 \input{./Chapter6_Discussion/Discussion}
-\cleardoublepage
+%\cleardoublepage
 
 \addcontentsline{toc}{chapter}{Bibliography}
 
 \input{./Appendix/Appendix}
-\cleardoublepage
+%\cleardoublepage
 
 \printbibliography
-\cleardoublepage
+%\cleardoublepage
 
 \end{document}

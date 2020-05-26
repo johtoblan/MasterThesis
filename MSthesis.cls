@@ -14,6 +14,7 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{array}
 \usepackage{csquotes}
 \usepackage{geometry}
 \usepackage{emptypage}
