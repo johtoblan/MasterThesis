@@ -9,6 +9,7 @@
 \usepackage{mathptmx}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{rotating}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
 \usepackage{fancyhdr}
 \usepackage{url}
@@ -18,10 +19,11 @@
 \usepackage{csquotes}
 \usepackage{geometry}
 \usepackage{emptypage}
+\usepackage{physics}
 \usepackage[parfill]{parskip} % removes indentation of sectioning.
 \usepackage{comment}
 \linespread{1.5} % Line spacing
-\newgeometry{top=2.5cm, bottom=2.5cm, left=3.0cm, right=2.5cm}
+\newgeometry{top=2.5cm, bottom=2.5cm, left=3.0cm, right=2.5cm, headheight=15pt}
 
 %%%  ACRONYMS LIST  %%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[acronym]{glossaries}
