@@ -1,4 +1,4 @@
-\setcounter{chapter}{2}
+\setcounter{chapter}{3}
 \chapter{Methods}
 
 \section{Models}\label{sec:models}
@@ -10,7 +10,6 @@ It is important to distinguish between the two model-types used in this thesis. 
 A \acrfull{nwp}-model uses observational data as input to create an analysis for the current atmospheric state. This is done such that the model is run with the best estimate of the atmosphere . When the model then runs it advances in time, with a given timestep. This advance is done by solving the governing equations to calculate the next state of the atmosphere.This state is then recorded at fixed intervals (hourly for \acrshort{meps}) and this predicted/forecasted state is what constitutes a weather forecast. Operational \acrshort{nwp}-models are often updated when model upgrades are ready, so models for different time periods can be using different physics schemes. Modern \acrshort{nwp}-models also utilize perturbed ensemble-members. This is done by having a control run use the original observational data, and then making small (inside of the observational uncertainty range) changes or perturbations to the initial state. This could also include changes to the model itself (e.g. \cite{toth1993}). Each run is then a member in the whole ensemble, and the ensemble as a whole is meant to represent a range of possible outcomes from the observed starting state.
 
 \subsubsection{MEPS}\label{sec:meps}
-
 The operational \acrfull{meps}\footnote{Note that in February 2020, both the format and frequency of model runs for \acrfull{meps} was changed considerably, operational here refers to the model-runs from 2016-2019} model uses a timestep of $75s$, a horizontal grid with a $2.5x2.5$km  resolution, with $65$-vertical model levels in the HARMONE-AROME system (\cite{bengtsson2017}). Archived data for this model-setup is available for the period 2016 to 2019 at thredds.met.no.
 
 \subsection{Reanalysis - model}\label{sec:ra}
@@ -18,22 +17,21 @@ The operational \acrfull{meps}\footnote{Note that in February 2020, both the for
 A reanalysis differs from an operational \acrshort{nwp}-model in that it uses a fixed version of an \acrshort{nwp}-model on historical weather observations. This is done to create the best possible historical weather data, by turning point and field observations into a complete gridded archive of historical weather. Reanalysis models may also be run with pertubated ensembles, to capture variation between the times when observational data is considered.
 
 \subsubsection{ERA5}\label{sec:era5}
-The \acrfull{era5} dataset is created by the \acrfull{ecmwf} and provides hourly data, in $31x31$km grids, with $137$ vertical model-levels. The data ranges from $1979$ to and including $2019$ (It is continually updated as I write this, so it is probably updated beyond 2019). The observational data is assimilated in 12-hour windows (\cite{hersbach2018}).
+The \acrfull{era5} dataset is created by the \acrfull{ecmwf} and provides hourly data, in $31x31$km grids, with $137$ vertical model-levels. The data ranges from $1979$ to and including $2019$ (At the completion of this thesis. ERA5 is continually updated). The observational data is assimilated in 12-hour windows (\cite{hersbach2018}).
 This thesis utilizes the \acrshort{era5} dataset to create a set of climatologies and case-based atmospheric conditions, using the data reported on pressure levels.
 
 \section{Data}\label{sec:data}
 
 \subsection{Incidents from Avinor}\label{sec:avinordata}
 For the purpose of this thesis have received a dataset from Avinor. This data included all reports on helicopter and plane incidents reported to Avinor pertaining to lightning. have filtered out cases where there was observed lightning in the area and not striking the aircraft, to prevent identifying "normal" lightning.
-
 \begin{table}
     \begin{tabular}{ l|c|c|c|c|c} 
     		&Total cases & Height info & Position & Reported temp. (\acrshort{oat}) & After November 2016\\
      		\hline
      		Helicopters &$40$ & $37$ & $24$ & $12$&$19$\\
-     		Fixed-wing &$256$ & $217$ & $256$ & $1$&$58$\\ 
+     		Fixed-wing &$256$ & $217$ & $256$ & $1$&$57$\\ 
      		\hline
-     		Total &$296$ &$254$ & $280$ & $13$&$77$\\ 
+     		Total &$296$ &$254$ & $280$ & $13$&$76$\\ 
      		\hline
     \end{tabular}
     \caption{Data available for each case in the Avinor-dataset. Note that there is one helicopter case where height is not known, but position is. }
@@ -157,6 +155,8 @@ The severity-categories are based on discussion with the helicopter operators in
     \label{fig:hti}
 \end{figure}
 
-\subsubsection{Decomposition of HTI}\label{decomposition}
+\subsubsection{Decomposition of HTI}\label{sec:decomposition}
 
 To further investigate the effect of each parameter, the \acrshort{hti} is decomposed into subindices, one for each parameter. This allows 
+
+\section{Limitations}

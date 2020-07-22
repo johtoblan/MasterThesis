@@ -1,5 +1,80 @@
 \chapter{Results}
-TODO: Skrive introduksjon til Results-kapittelet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Casesperyear.pdf}
+    \caption{}
+    \label{fig:casesperyear}
+\end{figure}
+
+\section{}
+To verify the skill of the \acrshort{hti}, the index has been divided into sub-indices as described in Section \ref{sec:decomposition}. The helicopter cases happening after the operational forecast was introduced have their indices plotted in Figure \ref{fig:HeliAccum}. The figure shows that for all the eleven cases the \acrshort{hti}-value is atleast .50. If one also takes into account each sub-indices contribution as plotted in Figure \ref{fig:HeliDecomp}, one can see that the temperature parameter has it's full value for all cases, whilst the third case has a value of  $\sim .57/4$ due to the interpolated temperature from the model was found to be  $\sim -.57 ^{\circ}C$
+The total "correctly" forecast cases for different thresholds is shown in Table \ref{tab:HeliCont}. 
+
+\section{Discussion to last sec}
+As discussed in Section \ref{ch:background}, the limit for precipitation was chosen to reduce the wrongly identified cases. Instead the upper limit of precipitation should be higher, and the area around looking for precipitation should be increased (Maybe to decrease error due to model dryness as discussed in model)
+
+https://www.energyvoice.com/other-news/102241/lighting-strike-forces-north-sea-helicopter-to-make-emergency-landing/
+https://draugen.industriminne.no/nb/2018/05/25/helikopter-truffet-av-lyn/#footnote_target_1
+https://www.brunsvika.net/nyhetsarkiv-alle-artikler/2009/4077-lynnedslag-i-helikopter
+https://assets.publishing.service.gov.uk/media/54230184e5274a1317000b3d/dft_avsafety_pdf_501972.pdf
+
+\begin{table}[H] 
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Forecast & With Accumulated & Without Accumulated & Missed \\ \hline
+        >Yellow (0.73) & 9 & 7 & 2\\
+        >Orange (0.90) & 2 & 2 & 7\\ 
+        >Red (0.99) & 0 & 0 & 11\\
+    \end{tabular}
+    \caption{Contingency table based on the $11$ Helicopter cases in Figure \ref{fig:HeliAccum}}
+    \label{tab:HeliCont}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Forecast & With Accumulated & Without Accumulated & Missed \\ \hline
+        >Yellow (0.73) & 22 & 21 & 14\\
+        >Orange (0.90) & 10& 8& 25\\ 
+        >Red (0.99) & 4& 3& 30\\
+    \end{tabular}
+    \caption{Contingency table based on the $34$ Fixed wing cases in Figure \ref{fig:FWAccum}}
+    \label{tab:FWCont}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/HeliAccum.pdf}
+    \caption{Contributions from the different sub-indices, for Helicopter cases during the operational forecast. Black on yellow is correction made by using the hourly precipitation instead of accumulated precipitation.}
+    \label{fig:HeliAccum}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/HeliDecomp.pdf}
+    \caption{Same as \ref{fig:HeliAccum}, but clearly delineated between the sub-indices}
+    \label{fig:HeliDecomp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/FWAccum.pdf}
+    \caption{Contributions from the different sub-indices, for Fixed wing cases during the operational forecast. Black on yellow is correction made by using the hourly precipitation instead of accumulated precipitation.}
+    \label{fig:FWAccum}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/FWDecomp.pdf}
+    \caption{Same as \ref{fig:FWAccum}, but clearly delineated between the sub-indices}
+    \label{fig:FWDecomp}
+\end{figure}
+
+
+
+
 
 To prevent cases from differing climatic regions from interfering with each other, the cases are divided into climatic zones, as shown in Figure \ref{fig:Stationsmap}. These zones are chosen to give approximately equal climates, and such that the amount of cases are equal for the zones. The amount per zones are shown in Figure \ref{fig:soner}.
 
@@ -46,7 +121,7 @@ Continuing with Figure \ref{fig:soner}, we see that the cases have their peak fo
 \end{figure}
 
 \subsection{METAR}
-Figure \ref{fig:metarclimat} shows the frequency of observed meteorological phenomena at a selection of Norwegian airports for the \acrshort{htl}-season. We see generally few reports of hail (GS) and some variation in the amount of cumulonimbus clouds (CB). For Gardermoen, which is not a coastal airport, we see almost no cumulonimbus clouds reported during the winter season. This is also true for the shower (SH) and shower vicinity (BCSH) phenomena. This is to be expected, as Gardermoen is inland and therefore subject to wintertime inversions. This inversion is not present along the coast of Norway due to the North Atlantic Current. We also see that there are few cases where overcast (OVC) is reported along the coast, which further supports the previous statement about inversions. As we move north along the coast, from Sola to Hammerfest, we see that the frequency of snow (SN) increases. This indicates a colder atmosphere.
+Figure \ref{fig:metarclimat} shows the frequency of observed meteorological phenomena at a selection of Norwegian airports for the \acrshort{htl}-season. We see generally few reports of hail (GS) and some variation in the amount of cumulonimbus clouds (CB). For Gardermoen, which is not a coastal airport, we see almost no cumulonimbus clouds reported during the winter season. This is also true for the shower (SH) and shower vicinity (VCSH) phenomena. This is to be expected, as Gardermoen is inland and therefore subject to wintertime inversions. This inversion is not present along the coast of Norway due to the North Atlantic Current. We also see that there are few cases where overcast (OVC) is reported along the coast, which further supports the previous statement about inversions. As we move north along the coast, from Sola to Hammerfest, we see that the frequency of snow (SN) increases. This indicates a colder atmosphere.
 
 
 \begin{figure}
@@ -74,7 +149,7 @@ Figure \ref{fig:metarcases} shows the frequency of observed meteorological pheno
             Case per traffic & 1 / 31 050 & 1 / 14 620 & 1 / 72 460\\\hline
             Lightning per case & 32 500 & 11 240 & 53 160 \\\hline
         \end{tabular}
-     \caption{Average traffic related to lightning and lightning related cases, for the three biggest airports: ENGM,ENBR,ENZV (By traffic-data for 2019)}
+     \caption{Average traffic related to lightning and lightning related cases, for the three biggest airports by traffic-data for 2016-2018}
      \label{tab:traffic}
 \end{table}
 
@@ -399,7 +474,7 @@ Figure \ref{fig:eramepsdiff} shows the temperature from case height for both ERA
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{Figures/T750MEPSera5diff.pdf}
+    \includegraphics[width=.5\textwidth]{Figures/T750MEPSera5diff.pdf}
     \caption{difference of era5 and meps for cases}
     \label{fig:eramepsdiff}
 \end{figure}
