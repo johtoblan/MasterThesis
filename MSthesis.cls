@@ -20,6 +20,7 @@
 \usepackage{geometry}
 \usepackage{emptypage}
 \usepackage{physics}
+\usepackage{algorithm}
 \usepackage[parfill]{parskip} % removes indentation of sectioning.
 \usepackage{comment}
 \linespread{1.5} % Line spacing

@@ -1,23 +1,180 @@
-\chapter{Results}
+\chapter{Results and discussion}
 
-\begin{figure}[H]
+\section{How does the Avinor lightning dataset compare to earlier HTL data?}
+
+\begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{Figures/Casesperyear.pdf}
-    \caption{}
-    \label{fig:casesperyear}
+    \includegraphics[width=\textwidth]{Figures/yearlydistribution.pdf}
+    \caption{Seasonal variation of helicopter cases, showing no cases in June to September. Same as Figure \ref{fig:landewilk}, with cases looked at in this study added to it. Older data is produced from \cite{lande1999} and \cite{wilkinson2013}. Legend notes time-periods and amount of cases in each study. }
+    \label{fig:yearlyvariation}
 \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/temperature.pdf}
+    \caption{Temperature in fixed-wing and helicopter cases (interpolated from ERA5 pressure levels)}
+    \label{fig:temperatureera5}
+\end{figure}
+
+As discussed in Chapter \ref{ch:lightning}, there exists a body of research showing that the $0^{\circ}C$ isotherm is related to winter- and \acrlong{htl}. Figure \ref{fig:yearlyvariation} shows that the Avinor data set has the same seasonal variation as these earlier studies, except for the additional case in May. This is presumably due to the Norwegian climate being generally colder than the British, which is where most of the earlier cases were from. 
+
+In contrast to the earlier research, the temperature found from ERA5 in Figure \ref{fig:temperatureera5} shows that the peak is situated around $-3^{\circ}C$ and not the $0^{\circ}C$ isotherm. This can either be attributed to a systematic error in pressure level interpolation (see Section \ref{sec:interpolation}), or due to operational procedures implemented due to \cite{lande1999}, which advises avoidance of the $0^{\circ}C$ isotherm when \acrshort{htl} is forecast or when flying inside of a cloud. Taking into account the \acrshort{fwtl} temperature in the same figure, there seems to be a $-1^{\circ}C$ shift from $0^{\circ}C$ since the peaks are at $-1^{\circ}C$ and $-3^{\circ}C$ compared to Figure \ref{fig:landetemp}. This also supports the previous statement about the effect of avoiding the $0^{\circ}C$ isotherm, as this is not a procedure followed by pilots flying fixed wing aircraft.
+
+Figure \ref{fig:helisoner} shows the \acrshort{htl} incidents divided by the zones shown in Figure \ref{fig:Stationsmap}. It should be noted that there are no cases at Gardermoen, and only one case off the coast of Denmark in the Southern coast zone. The April peak is primarily contributed to by the North coast zone, which can be explained by the fact that the sea is still relatively warmer than the atmosphere during this time compared to the coast further south. This therefore supports earlier work in which it was proposed that cold air over warmer oceans caused convective systems to appear and be electrified. 
+
+Figure \ref{fig:helivsfw} shows the same picture that \acrshort{htl} is a winter phenomenon and supports the claim in Section \ref{sec:fwtl} that \acrshort{fwtl} is an all-year phenomenon. The august peak in \acrshort{fwtl} can be explained by August being the month with the highest lightning activity in Norway. July also has some lightning activity, but commercial air travel is reduced compared to August. 
+
+Figure \ref{fig:soner} shows that there is a geographical variation in cases, namely southern coast and Gardermoen primarily have cases during April-October, whereas the north, west and northwest are more represented during October-April. This shows a similar picture to that in \cite{koeltzow2018}: The Norwegian lightning climatology is primarily coastal in nature for winter lightning, and primarily inland for summer lightning. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/Helisoner.pdf}
+    \caption{Zonal division of helicopter cases}
+    \label{fig:helisoner}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/helivsfw.pdf}
+    \caption{Yearly distribution of helicopter and fixed wing cases}
+    \label{fig:helivsfw}
+    \end{subfigure}
+    
+    \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/soner.pdf}
+    \caption{Zonal division of helicopter and fixed wing cases, see Figure \ref{fig:helivsfw} for categorical distribution}
+    \label{fig:soner}
+    \end{subfigure}
+\end{figure}
+
+\section{Why are there more HTL near Flesland than Sola?}
+
+Looking at the flight traffic data compared to triggered lightning events in Table \ref{tab:traffic}, it is clear that Flesland airport has the highest incident per traffic ratio of the large Norwegian airports. 
+
+Figure \ref{fig:metarclimat} shows Flesland to have a higher (20$\%$) frequency of rain than Sola at 15$\%$. The same is seen for both categories of showers (\textit{SH}, \textit{VCSH}). This suggests a more convective area around Flesland airport than at Sola airport. Ørlandet has similar convective activity to Flesland, but has almost no commercial air traffic. Therefore, any triggered lightning incident would not be in this data set and there is a smaller amount of potential trigger events. 
+
+This convective difference between Flesland and Stavanger cannot be explained by yearly traffic differences, and their geographical positions are so close that there should not be any substantial climatological temperature differences between the two. There is somewhat less lightning activity observed at Flesland compared to Sola.
+
+\begin{table}
+        \begin{tabular}{r|l|l|l|}
+            & Sola (ENZV) & Flesland (ENBR) & Gardermoen (ENGM) \\\hline
+            Average yearly traffic (2016-2018)  & 74 532 & 92 128 & 253 599   \\\hline
+            Lightning close to airport (2008-2019) & 30 920 & 22 774 & 68 321 \\\hline
+            Cases close to airport & 24 & 63  & 35 \\\hline
+            Case per traffic  & 1 / 31 055 & 1 / 14 624 & 1 / 72 457 \\\hline
+            Case per recorded lightning & 1 / 1 289 & 1 / 361 & 1 / 1 952 \\\hline
+        \end{tabular}
+     \caption{Average traffic, accumulated lightning activity, and cases within $0.5^{\circ}$($\approx 50km$) radius of the three biggest Norwegian airports.}
+     \label{tab:traffic}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/METAR_airports.pdf}
+    \caption{Percentage of METAR-reports involving at least one of the meteorological phenomena at Hammerfest, Ørlandet, Flesland, Sola, and Gardermoen airports. Selection is based on geographical variation and representation.}
+    \label{fig:metarclimat}
+\end{figure}
+
+
+\section{Are cumulonimbus clouds a predictor for helicopter triggered lightning? Study METAR data.}
+
+
+
+\section{What are the composites telling us about the atmospheric conditions during triggered lightning} incidents?
+
+\section{What are the implications of the precipitation bug fix?}
+
+\section{How do the sub-indices perform during triggered lightning incidents?}
+
+\section{How do the sub-indices perform generally? (Over-forecasting?)}
+
+(EPS?!?!?!?!?!) no!
+
+\section{Erroneous HTL forecast}
+
+Figure \ref{fig:fixeffect} shows the frequency of risk categories for selected airports shown in the original colors (red, orange, yellow) while the blue shade plotted over these show the frequency of risk categories \textit{after} using the hourly precipitation instead of the accumulated precipitation. This shows a reduction in the yellow category for \textit{all} airports, some showing almost a halving of yellow forecasts. Though the higher risk categories (orange and red) only show a significant reduction for the six northernfacing airports: Hammerfest, Bodø, Brønnøysund, Ørlandet, Kristiansund og Florø. Flesland and Sola do not show a reduction in the red risk, but do show a near-halving of the orange risk frequency. The equal risk in Flesland and Sola is interesting, as Flesland twice as often has incidents related to lightning as Sola.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyyellow.png}
+    \caption{Frequency of Yellow risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixred}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyorange.png}
+    \caption{Frequency of Orange risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixorange}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyred.png}
+    \caption{Frequency of Red risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixyellow}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/fixeffect.pdf}
+    \caption{Frequency of [Yellow,Orange,Red] risk levels before and after fixing the erroneous forecast, for selected airports.}
+    \label{fig:fixeffect}
+\end{figure}
+
+
+A total of 58 cases, where 21 of the cases had a higher HTI due to the precipitation bug (Whilst the rest had no change in HTI, when accounting for the bug)
+
+Vertical velocity is determined from its relation to HTI, since it was not archived, such that for the cases where no HTI was reported (Set to zero by the land mask), the vertical velocity component is not retrievable. The cases with no reported HTI is marked with * after height of incident (in feet).
+
+Skydekke, ser ikke ut til å gi noe ny informasjon. Egentliig BINÆR og kan sees på som ikke-ortogonal. (Lineær kombinasjon av Vertical og Preciptiation) Derfor er det viktig å ta med kllimatologi.
+
+Skydekket gir ikke ny informasjon antakeligvis fordi 7x7 nabolaget er for grovt. Slik at max og min, vil nesten alltid 1 og 0 respektivt. Dette fører til en økning, mer enn økningen fra precipitation.
+
+Helicopter – cases
+Case 2000ft has all indications of a helicopter triggered lightning strike. The helicopter was flying at normal height outward. Cloud is only parameter not fully .25, but this does not reduce the index below Red (.99).
+Case 5000ft has a orange value (~.92), this would be reduced to a white value (~.69) if the hourly precipitation was instead considered. Vertical velocity is at ~.20, but this value is based on the 2000ft – 3000ft heights. An explanation to this may be that the vertical velocity was strong at the upper level, but was dampened by the lower part. Either Temperature, Cloud Cover or Accumulated precipitation needs a higher weight. The vertical velocity and fixed precipitation must be weighed less.
+Case 3,4,5 are all at 500ft height, due to the incidents being when the helicopters were approaching offshore-installations. 
+Case 3 requires a stronger weighting on cloud cover and precipitation. Upward velocity and Temperature are missing. The upward velocity would be related to a temperature in the  [-1,-6] range, due to this being over  southern part of the ocean.
+Case 4 shows non-precipitation clouds. The limitation here is probably in the weather model, and the fact that there is almost no vertical velocity nor precipitation (Neither accumulated nor hourly) in the immediate vicinity. This suggests that there are stable low clouds, but not growing clouds (no prec nor upward movement)
+Case 5 	would require only weigthing of the temperature and  cloud parameter to get a restriction of the flight. There is some vertical velocity and some hourly precipitation, but the value is too low to be give a restriction.
+Case 6 lacks upward velocity and would require a lower weight on this parameter. The forecast shows hourly precipitation over 0.75mm/hr, but without the vertical velocity requirement filled, the value is only yellow (at ~.77). To correctly estimate risk here, the cutoff should be lower for the vertical velocity component, and/or a higher weigthing of the remaining parameters.
+Case 7,8, and 9 are happening at consecutive hours at the same heliport (UTC 12,13 and 14). The forecast was yellow, even though three incidents were reported this day.
+Case 7 has good cloud parameter, but the hourly precipitation is lacking. A higher weighted temperature, and cloud would give a higher risk, but the consideration of hourly precipitation instead of accumulated would reduce the risk considerably.
+Case 8 has less cloud-free cells, such that the cloud parameter is lower than the previous hour. The upward velocity and the precipitation (both hourly and accumulated) 
+Hva skal til for at disse ville vært varslet som rødt?
+
+Helicopter - cases
+Flesland 1 – 2000ft :  Shown is a orange level value - (~.92), this is to be considered red at the time of the event (17 UTC), to note is that the temperature is not fully red, but the next forecasted hour is full (1) HTI, such that this temperature requirement is fully achieved in the next hour. To make this case fully red, a decrease in temperature weighting or possible increase in temperature range, or alternatively non-linear weighting of the temperature.
+Flesland 2 – 5000ft : Shown is orange level value (~.95), the restricting parameter at time of forecast was vertical velocity. This may be due to incorrect interpolation, or simply that the lower bound of the vertical velocity field was too low (since this case happened above the interpolation-height (2000-3000ft)) To correctly forecast this one should either decrease upper limit of vertical velocity or increase weighting of others. This case also show a severe deterioration of the precipitation index when using the hourly and not the accumulated precipitation, such that the level would have been reduced to a yellow value (~.73), which would not restrict flying. To correctly restrict flying in this case then, one would need to significantly reduce weighing of hourly precipitation or alternatively reduce required precipitation for full index
+Ekofisk 3 – 500ft : Shown is yellow level value (~.75), with full index forecast for all except temperature, which has 0 index. To correctly restrict flying here would require not looking at the temperature parameter at all. The cause of this is probably related to the interpolation of the temperature field, or maybe a lack of fineness over sea surface, such that air temperature is influenced too much by sea surface temperature (Which is prescribed at time of analysis). Fig A.4. a
+Leiv Eiriksson 4 – 500ft :  Shown is white level value (~.53), with full index for temperature and cloud, but zero index for vertical velocity and precipitation. Precipitation index is reduced slightly when considering hourly precipitation, but accumulated precipitation would not give a restriction anyway. To correctly restrict flight here, one would need to ignore precipitation and vertical velocity, and only weigh temperature and the cloud cover. 
+
+Helicopter - cases
+Flesland 1 – 2000ft : Shown is orange value of 0.94, limiting factor is here vertical velocity which is too low to give full HTI. The reduction when considering hourly instead of the accumulated precipitation is only to the orange value of .93, such that the reduction would not create a reduction in forecasted risk.  (Fig.A.3.a)
+Flesland 2 – 5000ft : Shown is orange value of .90, limiting factor again is vertical velocity, although this may be due to the fact that the helicopter flies at 5000ft, which is above the interpolation height of 2000-3000ft. Considering the hourly instead of the accumulated precipitation we get a reduction to  .66 which is white value. This would then not restrict flight for this case. Fig.A.3.c
+Ekofisk 3 – 500ft : Shown is yellow value of  .78, here only the precipitation part of the index has a full part.  Temperature is too high (-0.67 degrees, giving the sub-index a .67/4) value. Precipitation index is the same whether hourly or accumulated is considered (more than .75 mm/hr).  Fig A.4. a
+Leiv Eiriksson 4 – 500ft : Shown is white value of .53, the limiting factors are both precipitation and vertical velocity. There is no precipitation, neither hourly nor accumulated.  Looking at figure Fig. A.1.d shows the whole model area for the time of the event. One sees here a front probably related to a low situated north west of the incident. The error here is then not a wheighting error but a placement of the low error, such that if the low had been correctly placed in the model, by modelling further north, one would expect the value to be orange or even red. This in turn correctly explains the limiting precipitation and vertical velocity since, they are associated with the position of the front.
+West Phoenix 5 – 500ft : Shown is yellow value of .73, limiting factor is vertical velocity and cloud cover parameter. Looking at the hourly precipitation instead of the accumulated would reduce the total risk to the white value of .49. Looking at Fig A.2.f one sees that the model has a “front” in the HTI, probably due to a front moving west to east. This low value (.49) is then possibly due to the placement of this front, and also the fact that the model output is hourly, such that safe conditions to fly in at say 12 UTC, should not be considered safe at 12:30 UTC if 13 UTC is at risk.
+Flesland 6 – 2000ft : .84 .60 Fig.A.4.d 
+Brønnøy 7 – 2000ft :  .81 .61 Fig.A.1.f
+Sola 8 – 2000ft : .91 Fig.A.4.e
+Sola 9 – 2000ft : .83 Fig.A.4.f
+Sola 10 – 2000ft : .83 Fig.A.4.g
+Hammerfest 11 – 2000ft :  .78 .78 Fig.A.1.g
+
+
+
 
 \section{}
 To verify the skill of the \acrshort{hti}, the index has been divided into sub-indices as described in Section \ref{sec:decomposition}. The helicopter cases happening after the operational forecast was introduced have their indices plotted in Figure \ref{fig:HeliAccum}. The figure shows that for all the eleven cases the \acrshort{hti}-value is atleast .50. If one also takes into account each sub-indices contribution as plotted in Figure \ref{fig:HeliDecomp}, one can see that the temperature parameter has it's full value for all cases, whilst the third case has a value of  $\sim .57/4$ due to the interpolated temperature from the model was found to be  $\sim -.57 ^{\circ}C$
 The total "correctly" forecast cases for different thresholds is shown in Table \ref{tab:HeliCont}. 
 
 \section{Discussion to last sec}
-As discussed in Section \ref{ch:background}, the limit for precipitation was chosen to reduce the wrongly identified cases. Instead the upper limit of precipitation should be higher, and the area around looking for precipitation should be increased (Maybe to decrease error due to model dryness as discussed in model)
+As discussed in Section, the limit for precipitation was chosen to reduce the wrongly identified cases. Instead the upper limit of precipitation should be higher, and the area around looking for precipitation should be increased (Maybe to decrease error due to model dryness as discussed in model)
 
-https://www.energyvoice.com/other-news/102241/lighting-strike-forces-north-sea-helicopter-to-make-emergency-landing/
-https://draugen.industriminne.no/nb/2018/05/25/helikopter-truffet-av-lyn/#footnote_target_1
-https://www.brunsvika.net/nyhetsarkiv-alle-artikler/2009/4077-lynnedslag-i-helikopter
-https://assets.publishing.service.gov.uk/media/54230184e5274a1317000b3d/dft_avsafety_pdf_501972.pdf
 
 \begin{table}[H] 
     \centering
@@ -78,20 +235,7 @@ https://assets.publishing.service.gov.uk/media/54230184e5274a1317000b3d/dft_avsa
 
 To prevent cases from differing climatic regions from interfering with each other, the cases are divided into climatic zones, as shown in Figure \ref{fig:Stationsmap}. These zones are chosen to give approximately equal climates, and such that the amount of cases are equal for the zones. The amount per zones are shown in Figure \ref{fig:soner}.
 
-\begin{sidewaysfigure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/METARandHIT.pdf}
-    \caption{Zones used in this thesis, with METAR-stations in white, and unique places with incidents in red.}
-    \label{fig:Stationsmap}
-\end{sidewaysfigure}
-
 \section{Analysis of the AVINOR lightning dataset}
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/yearlydistribution.pdf}
-    \caption{Seasonal variation of helicopter cases, showing no cases in June to September. Same as Figure \ref{fig:landewilk}, with cases looked at in this study added to it. Older data is produced from \cite{lande1999} and \cite{wilkinson2013}. Legend notes time-periods and amount of cases in each study. }
-    \label{fig:yearlyvariation}
-\end{figure}
 
 As one can see from Figure \ref{fig:yearlyvariation}, the helicopter cases added in this study have the same seasonal variation as in earlier \acrshort{htl} studies (\cite{wilkinson2013}, \cite{lande1999}). Although this novel data set has one case in May, this may be attributed to the Norwegian climate being colder than the United Kingdom's and can be looked at as a statistical anomaly. Note that the peak of \acrlong{htl} is in the mid-winter (January, February). 
 
@@ -99,37 +243,10 @@ Looking at the whole dataset as in Figure \ref{fig:helivsfw}, we see that helico
 
 Continuing with Figure \ref{fig:soner}, we see that the cases have their peak for the West, North West and North coast in the winter months, while the Southern Baltic zone and Gardemoen have their peak during the summer months. This hints at a climatological difference between these zone groups.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/helivsfw.pdf}
-    \caption{Helicopter and Fixed-wing cases throughout the year}
-    \label{fig:helivsfw}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/Helisoner.pdf}
-    \caption{Geographical variation of helicopter cases}
-    \label{fig:helisoner}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/soner.pdf}
-    \caption{Geographical variation of all cases}
-    \label{fig:soner}
-\end{figure}
-
 \subsection{METAR}
 Figure \ref{fig:metarclimat} shows the frequency of observed meteorological phenomena at a selection of Norwegian airports for the \acrshort{htl}-season. We see generally few reports of hail (GS) and some variation in the amount of cumulonimbus clouds (CB). For Gardermoen, which is not a coastal airport, we see almost no cumulonimbus clouds reported during the winter season. This is also true for the shower (SH) and shower vicinity (VCSH) phenomena. This is to be expected, as Gardermoen is inland and therefore subject to wintertime inversions. This inversion is not present along the coast of Norway due to the North Atlantic Current. We also see that there are few cases where overcast (OVC) is reported along the coast, which further supports the previous statement about inversions. As we move north along the coast, from Sola to Hammerfest, we see that the frequency of snow (SN) increases. This indicates a colder atmosphere.
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/METAR_airports.pdf}
-    \caption{METAR climatology}
-    \label{fig:metarclimat}
-\end{figure}
 
 Figure \ref{fig:metarcases} shows the frequency of observed meteorological phenomena when helicopter and fixed-wing cases are reported. Here we see a smaller frequency of relevant meteorological phenomena (cumulonimbus, showers and shower vicinity) for helicopter cases compared to fixed-wing cases. We also see that the frequency of snow and rain is somewhat equal for the helicopter cases, while for the fixed-wing cases there are more cases where rain is reported and not snow. This may be a result of fixed-wing cases being an all-year phenomenon, so that snow is hardly reported.
 
@@ -140,43 +257,25 @@ Figure \ref{fig:metarcases} shows the frequency of observed meteorological pheno
     \label{fig:metarcases}
 \end{figure}
 
-\begin{table}
-        \begin{tabular}{r|l|l|l|}
-            & Sola (ENZV) & Flesland (ENBR) & Gardermoen (ENGM) \\\hline
-            Average Traffic (2016-2018)  & 74 532 & 92 128 & 253 599   \\\hline
-            Lightning close to airport (2008-2018) & 78 008 & 70 813   & 186 074 \\\hline
-            Cases close to airport & 24 & 63  & 35 \\\hline
-            Case per traffic & 1 / 31 050 & 1 / 14 620 & 1 / 72 460\\\hline
-            Lightning per case & 32 500 & 11 240 & 53 160 \\\hline
-        \end{tabular}
-     \caption{Average traffic related to lightning and lightning related cases, for the three biggest airports by traffic-data for 2016-2018}
-     \label{tab:traffic}
-\end{table}
-
 \section{ERA5 climatologies and cases data}\label{sec:era5results}
 For each case in the Avinor dataset the temperature is estimated by interpolation (as discussed in \ref{sec:interpolation}) from \acrshort{era5} pressure level temperature data as shown in Figure \ref{fig:temperatureera5}. The cases include both \acrshort{fwtl} and \acrshort{htl}. The temperature distribution is normal-like around -1C. These cases may include both induced and triggered lightning, which may explain the cases happening at above 2C as these may happen under the electrically active area. It is worth noting that most of the cases happen in the -10C to 0C temperature range, where the electrification process is believed to be most active. There is also a similarity between the distributions for \acrshort{htl} and \acrshort{fwtl} cases. This hints that the phenomena are closely related, as discussed later.
 
 Further, Figure \ref{fig:meaneraT750} shows the mean climatological temperature of the \acrshort{htl} season for 2008-2019 for 750 meters above sea level. This shows that the temperature along the coast of Norway is around 0C to -5C during the \acrshort{htl} season, which we saw from Figure \ref{fig:temperatureera5} is where most triggered lightning happens. Linking this to the mean sea surface temperature, as shown in Figure \ref{fig:meanerasst}, we see that the sea surface is around 5C to 10C on the Norwegian coast during \acrshort{htl} season. This results in a climatological lapse rate of $-\frac{5 \text{ to } 10 ^{\circ}C}{750m} \approx -\frac{6.67 \text{ to }13.33 ^{\circ}C}{km}$. Compared to the dry adiabatic lapse rate, of -9.8C/km, this would be on the lower end of the climatological lapse rate approximation lead to a stable atmosphere, while on the higher end to an unstable atmosphere - if the air was dry. However, since this is above the open sea, relative humidity will lower the required magnitude of the temperature gradient for an unstable atmosphere. 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/temperature.pdf}
-    \caption{Temperature in fixed-wing and helicopter cases (interpolated from ERA5 pressure levels)}
-    \label{fig:temperatureera5}
-\end{figure}
 
 \begin{figure}
     \centering
+    \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{Figures/MeanT750era5.pdf}
-    \caption{Mean Temperature of 750m height in HTL season (ERA5)}
+    \caption{Mean temperature of 750m height in HTL season (ERA5)}
     \label{fig:meaneraT750}
-\end{figure}
-
-\begin{figure}
-    \centering
+    \end{subfigure}
+    
+    \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{Figures/MeanSSTera5.pdf}
-    \caption{Mean Sea Surface Temperature (SST) in HTL season (ERA5)}
+    \caption{Mean sea surface temperature (SST) in HTL season (ERA5)}
     \label{fig:meanerasst}
+    \end{subfigure}
 \end{figure}
 
 \subsection{Composites of parameters used in forecasting divided by zone}
@@ -274,25 +373,25 @@ In total, Figure \ref{fig:verticalzones} shows that cases with lightning strikes
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/WNord.pdf}
-    \caption{Temperature for cases in North zone.}
+    \caption{Vertical velocity for cases in North zone.}
     \label{fig:NordW}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/WNordvest.pdf}
-    \caption{Temperature for cases in Northwest zone.}
+    \caption{Vertical velocity  for cases in Northwest zone.}
     \label{fig:NordWestW}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/WVest.pdf}
-    \caption{Temperature for cases in West zone.}
+    \caption{Vertical velocity  for cases in West zone.}
     \label{fig:WestW}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/WSor.pdf}
-    \caption{Temperature for cases in South zone.}
+    \caption{Vertical velocity  for cases in South zone.}
     \label{fig:SouthW}
 \end{subfigure}
 \caption{Vertical velocity composites for the different zones}
@@ -306,20 +405,20 @@ This is further confirmed by looking at the biggest airports in Figure \ref{fig:
      \begin{subfigure}[b]{0.49\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/WENBR.pdf}
-         \caption{Flesland}
+         \caption{Vertical velocity for cases at Flesland}
          \label{fig:ENBRW}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.49\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/WENZV.pdf}
-         \caption{Sola}
+         \caption{Vertical velocity for cases at Sola}
          \label{fig:ENZVW}
      \end{subfigure}
     \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/WENGM.pdf}
-    \caption{Temperature for cases in Gardermoen zone.}
+    \caption{Vertical velocity for cases in Gardermoen zone.}
     \label{fig:ENGMW}
 \end{subfigure}
 \caption{Vertical velocity composites for the biggest airports}
@@ -406,28 +505,28 @@ For the south (Figure \ref{fig:SouthcP}) we see a somewhat consistent pattern fo
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/cPNord.pdf}
-    \caption{Temperature for cases in North zone.}
+    \caption{Convective precipitation for cases in North zone.}
     \label{fig:NordcP}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/cPNordvest.pdf}
-    \caption{Temperature for cases in Northwest zone.}
+    \caption{Convective precipitation for cases in Northwest zone.}
     \label{fig:NordWestcP}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/cPVest.pdf}
-    \caption{Temperature for cases in West zone.}
+    \caption{Convective precipitation for cases in West zone.}
     \label{fig:WestcP}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/cPSor.pdf}
-    \caption{Temperature for cases in South zone.}
+    \caption{Convective precipitation for cases in South zone.}
     \label{fig:SouthcP}
 \end{subfigure}
-\caption{ }
+\caption{Convective precipitation composites for the different zones}
 \label{fig:convectivezones}
 \end{figure}
 
@@ -438,44 +537,43 @@ Figure \ref{fig:convectiveairports} shows the composites and standard deviation 
      \begin{subfigure}[b]{0.49\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/cPENBR.pdf}
-         \caption{}
+         \caption{Convective precipitation for cases at Flesland}
          \label{fig:ENBRcP}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.49\textwidth}
          \centering
          \includegraphics[width=\textwidth]{Figures/cPENZV.pdf}
-         \caption{}
+         \caption{Convective precipitation for cases at Sola}
          \label{fig:ENZVcP}
      \end{subfigure}
      
     \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Figures/cPENGM.pdf}
-    \caption{Temperature for cases in Gardermoen zone.}
+    \caption{Convective precipitation for cases in Gardermoen zone.}
     \label{fig:ENGMcP}
 \end{subfigure}
-\caption{ }
+\caption{Convective precipitation composites for the biggest airports. }
 \label{fig:convectiveairports}
 \end{figure}
 
 
 \section{MEPS}
-Figure \ref{fig:MeanT750MEPS} shows the same picture as discussed in section \ref{sec:era5results}: The climatological 750m temperature goes from approximately -6C to 2C along the western part of the Norwegian coast. This suggests that the mean temperature in MEPS for the HTI season is similar to the mean temperature of ERA5. If one assumes that the temperature ranges found in earlier studies, and supported in this thesis from ERA5, to be correct, one can then from this see a higher risk of \acrshort{htl} in the northern areas.
-
 Figure \ref{fig:eramepsdiff} shows the temperature from case height for both ERA5 and MEPS. This shows a good, but varied relation between MEPS and ERA5 temperatures around and below 0C. For some cases, however, MEPS shows a significant increase in temperature compared to ERA5, e.g. six cases where ERA5 shows 0C while MEPS shows temperatures around 10C. Higher up we also see two cases in the mid-teens Celsius for ERA5, being reported 10 degrees higher for MEPS. This can be contributed to the lack of vertical resolution in the MEPS pressure levels compared to the ERA5 pressure levels. 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/MeanT750MEPS.png}
-    \caption{Mean temperature at geopotential height 750 meters for the HTI season in the control run in MEPS, with a lead time of 1-6 hours.}
-    \label{fig:MeanT750MEPS}
-\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=\textwidth]{Figures/MeanT750MEPS.png}
+%    \caption{Mean temperature at geopotential height 750 meters for the HTI season in the control run in MEPS, with a lead time of 1-6 hours.}
+%    \label{fig:MeanT750MEPS}
+%\end{figure}
+
 
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{Figures/T750MEPSera5diff.pdf}
-    \caption{difference of era5 and meps for cases}
+    \caption{Difference of ERA5 and MEPS temperatures using pressure level interpolation to case height.}
     \label{fig:eramepsdiff}
 \end{figure}
 
@@ -487,7 +585,7 @@ Figure \ref{fig:temperaturemeps} shows the average value of the temperature comp
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{Figures/T.png}
-    \caption{Temperature}
+    \caption{Temperature sub-index throughout the 2018-2019 HTL-season. Left: mean value, and Right: standard deviation}
     \label{fig:temperaturemeps}
 \end{figure}
 
@@ -495,26 +593,27 @@ Figure \ref{fig:precipitationmeps} shows the average value of the precipitation 
 
 \begin{figure}
     \centering
+    \begin{subfigure}{\textwidth}
     \includegraphics[width = \textwidth]{Figures/P.png}
-    \caption{Precipitation}
+    \caption{Precipitation sub-index throughout the 2018-2019 HTL-season. Left: mean value, and Right: standard deviation}
     \label{fig:precipitationmeps}
+    \end{subfigure}
+    
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width = \textwidth]{Figures/Pf.png}
+    \caption{Precipitation sub-index if hourly precipitation was considered during the 2018-2019 HTL-season. Left: mean value, and Right: standard deviation}
+    \label{fig:precipitationfixmeps}
+    \end{subfigure}
 \end{figure}
 
 Figure \ref{fig:precipitationfixmeps} shows the substantial effects of using the intended hourly precipitation instead of the accumulated precipitation. Here we see, compared to Figure \ref{fig:precipitationmeps}, that the average value has been approximately halved.
-
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{Figures/Pf.png}
-    \caption{Fixed precipitation}
-    \label{fig:precipitationfixmeps}
-\end{figure}
 
 Figure \ref{fig:upwardvelocitymeps} shows the average value of the vertical velocity component, and we see a strong signal along coastal parts of Norway, especially northernfacing coasts. This shows clearly the effect of the convergence approximation discussed in Section \ref{sec:hti}. Note that there is almost zero signal in the average situation over the ocean. This shows the somewhat stochasticity of convection and is also a product of the fineness of the horizontal scale. 
 
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{Figures/W.png}
-    \caption{Vertical velocity}
+    \caption{Vertical velocity sub-index during the 2018-2019 HTL-season. Left: mean value, and Right: standard deviation}
     \label{fig:upwardvelocitymeps}
 \end{figure}
 
@@ -523,41 +622,11 @@ Figure \ref{fig:cloudcovermeps} is the only of these component climatologies whi
 \begin{figure}
     \centering
     \includegraphics[width = \textwidth]{Figures/C.png}
-    \caption{Cloud cover}
+    \caption{Cloud cover sub-index during the 2018-2019 HTL-season. Left: mean value, and Right: standard deviation}
     \label{fig:cloudcovermeps}
 \end{figure}
 
-\subsection{Erroneous HTL-forecast}
 
-Figure \ref{fig:fixeffect} shows the frequency of risk categories for selected airports shown in the original colors (red, orange, yellow) while the blue shade plotted over these show the frequency of risk categories \textit{after} using the hourly precipitation instead of the accumulated precipitation. This shows a reduction in the yellow category for \textit{all} airports, some showing almost a halving of yellow forecasts. Though the higher risk categories (orange and red) only show a significant reduction for the six northernfacing airports: Hammerfest, Bodø, Brønnøysund, Ørlandet, Kristiansund og Florø. Flesland and Sola do not show a reduction in the red risk, but do show a near-halving of the orange risk frequency. The equal risk in Flesland and Sola is interesting, as Flesland twice as often has incidents related to lightning as Sola.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/climatologyyellow.png}
-    \caption{Frequency of Yellow risk levels before and after fixing the erroneous forecast}
-    \label{fig:fixred}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/climatologyorange.png}
-    \caption{Frequency of Orange risk levels before and after fixing the erroneous forecast}
-    \label{fig:fixorange}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/climatologyred.png}
-    \caption{Frequency of Red risk levels before and after fixing the erroneous forecast}
-    \label{fig:fixyellow}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/fixeffect.pdf}
-    \caption{Frequency of [Yellow,Orange,Red] risk levels before and after fixing the erroneous forecast, for selected airports.}
-    \label{fig:fixeffect}
-\end{figure}
 
 \subsection{METAR as verification}
 To investigate the airports with the highest change in frequency from Figure \ref{fig:fixeffect} the observed meteorological phenomena (i.e. \acrshort{metar}) are plotted as a function of forecasted risk in both Figure \ref{fig:HTIMETAR1} and Figure \ref{fig:HTIMETAR2}. These figures show a higher frequency of meteorological observation of assumed relevant phenomena when non-white risk of \acrshort{htl} is forecast. Note that there is a slight increase in frequency of observed phenomena for the white forecasts, but there are also some decreases in frequency as the case for rain. This hints to both the increase and decrease in frequency to be not related to \acrshort{htl}. For both the red and orange risk level we see a substantial increase in observed relevant meteorological phenomena, especially showers, scattered and broken clouds, cumulonimbus and snow. Overcast and hail seem to have no considerable change, though hail may be due to the fact that it is less often reported in general.
