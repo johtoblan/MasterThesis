@@ -41,7 +41,7 @@ Lightning discharges in a thunderstorm can generally be divided into two categor
     \label{fig:lyntyper}
 \end{figure}
 
-\subsection{Winter lightning}
+\subsection{Winter lightning}\label{sec:winter lightning}
 Winter lightning is a type of natural lightning specifically relevant to \acrshort{htl} in Norway, as discussed in the next section. It is a relatively well-studied phenomenon in Japan. Cold air from Siberia moves over the warm Tsushima current off the west coast of Japan, causing convection due to a strong temperature gradient between the cold air and the warm ocean. The supply of humidity from the seawater leads to formation of hydrometeors. The resulting convection has been shown to produce lightning strikes and thunderstorms during winter (\cite{michimoto2007}).
 
 Winter lightning is also observed off the west coast of Norway (e.g \cite{march2016}; \cite{koeltzow2018}). Cold air is moved from the Arctic to the Norwegian coast where the ocean is warmed by the North Atlantic Current. The resulting temperature gradient gives rise to convection and subsequent electrification. As a result, there is a convective and electrically active belt along the coast of Norway during the winter, which is seen in the lightning climatology for winter in \cite{koeltzow2018}. Winter lightning also differs from summer lightning storms in that the frequency of lightning strikes is lower and the polarity is often more positive (\cite{michimoto2007}).
@@ -51,10 +51,10 @@ A \acrlong{htl} is thought to be triggered by the helicopter's presence, such th
 
 Weather phenomena common to \acrshort{htl}-events are (from \cite{lande1999}):
 \begin{itemize}
- \item \acrfull{oat} at flight level near freezing point 
- \item frozen precipitation, as snow, ice and graupel.
- \item inside of or directly below clouds.
- \item within 5 nautical miles of a Cumulonimbus cloud.
+ \item \acrfull{oat} at current flight level near freezing point 
+ \item observed frozen precipitation, as snow, ice and graupel.
+ \item clouds around or above the helicopter
+ \item a cumulonimbus cloud within 5 nautical miles of the helicopter.
 \end{itemize}
 
 \begin{figure}
@@ -64,7 +64,9 @@ Weather phenomena common to \acrshort{htl}-events are (from \cite{lande1999}):
     \label{fig:landetemp}
 \end{figure}
 
-The phenomenon is thus believed to be caused by the helicopter entering or coming close to an electrically charged part of a convective system. This may be caused by several different mechanisms: The helicopter could be subject to a charge build-up during flight and then cause a discharge into the charged area of opposite polarity. However, given high enough charge density in the cloud, the charged area could also discharge into the helicopter \textit{without} charge buildup in the helicopter. Alternatively, the helicopter could induce a \acrshort{cg} by acting as part of the leader, see Figure \ref{fig:triggertyper}. 
+\acrshort{htl} is believed to be caused by the helicopter entering or coming close to an electrically charged part of a convective system. This may be caused by several different mechanisms: The helicopter could be subject to a charge build-up during flight and then cause a discharge into the charged area of opposite polarity. However, given high enough charge density in the cloud, the charged area could also discharge into the helicopter \textit{without} charge buildup in the helicopter. Alternatively, the helicopter could induce a \acrshort{cg} by acting as part of the leader, see Figure \ref{fig:triggertyper}. 
+
+During the 1960s and 1970s in the U.S. military, charge build-up on helicopters in-flight was studied to prevent static discharges seen when cargo helicopters were hooked up to equipment on the ground (\cite{ad750617}). This phenomenon was found to be related to particles frictionally charging the helicopter blades. This charge was transported to the rest of the helicopter, since helicopters at the time were metallic. It was found that snow blowing through the rotors was a major factor in charging rate and accumulation, such that the maximum voltage measured between earth and helicopter was -200,000V when snow was blowing into the rotor (\cite{ad282087}). This, in turn, lead to the understanding that helicopters are negatively charged when flying in the North Sea (\cite{wilkinson2013}), such that a positive discharge is electrically favorable.
 
 A positively charged discharge is believed to cause more damage to helicopters than their negatively charged counterparts, as the action integral (Joule work\footnote{Any conductor has heat work (\textit{J}) based on the resistance (\textit{R}) and the current (\textit{I}) through the conductor: $J = I^2 R$} integrated over time, assuming $R = 1 \Omega$) of a positive lightning is higher than that of a negative lightning (\cite{hardwick1999}). The discharges to helicopters seem to also more often be positive (\cite{hardwick1999}).
 
@@ -147,6 +149,8 @@ The \acrshort{hti} is the sum of these four sub-indices, \[\text{HTI} = \frac{\t
     \item Red: $0.99 \leq HTI $
 \end{itemize}
 The severity categories are based on discussion with the main offshore helicopter operators in Norway (Bristow and CHC), and are changed if deemed necessary after the yearly evaluation of the season. \acrshort{hti} is not based on a regression analysis, but rather a subjective review of the earlier cases of incidents.
+
+When trying to recreate the \acrshort{hti}-functions, it became apparent that the operational forecast had been wrongly using the accumulated precipitation and not the intended hourly precipitation. This shifted some of the investigation into whether this erroneous use of the accumulated precipitation had led to any significant over-forecasting of \acrshort{htl}. The result of this would be limiting helicopter flights when there had been precipitation forecast earlier. Thus, any precipitation would lead to the precipitation sub-index to take the value one ($1$) (the maximum) for the rest of the forecast. For example, precipitation during the first hour of a forecast could wrongly overestimate the \acrshort{hti} of the following 17 hours of forecast made available to the flight planner. 
 
 \begin{figure}
     \centering

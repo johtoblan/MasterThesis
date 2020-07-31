@@ -1,5 +1,5 @@
 \appendix
-\chapter{Additional figures}
+\chapter{Additional figures}\label{app:A}
 \label{A1}
 % remove comment if you wish to add Appendix to contentsline.
 %\addcontentsline{toc}{chapter}{Appendix A: How to download ERA5 data}
@@ -369,11 +369,37 @@
 \label{fig:cloudcoverairports}
 \end{figure}
 
-\cleardoublepage
+\section{Precipitation fix effect for whole domain}
+
+\begin{figure}
+\centering
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyyellow.png}
+    \caption{Frequency of Yellow risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixred}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyorange.png}
+    \caption{Frequency of Orange risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixorange}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/climatologyred.png}
+    \caption{Frequency of Red risk levels before and after fixing the erroneous forecast}
+    \label{fig:fixyellow}
+\end{subfigure}
+\caption{Frequency of the different risk levels of \acrshort{hti} during \acrshort{htl}-season (October-April), before and after correction of erroneous use of accumulated precipitation. Also shown is the absolute difference between the original and fixed frequencies.}
+\label{fig:climatfix}
+\end{figure}
 
 
-\chapter{Airport delineation and classification}
-
+\chapter{Airport delineation and classification}\label{app:B}
+The airports have been grouped together to reduce noise in the composite plots as discussed in Section \ref{sec:composite}, the zones are shown in Figure \ref{fig:Stationsmap}
 \begin{sidewaysfigure}
     \centering
     \includegraphics[width=\textwidth]{Figures/METARandHIT.pdf}
