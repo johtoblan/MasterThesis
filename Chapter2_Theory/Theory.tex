@@ -1,9 +1,9 @@
 \setcounter{chapter}{1} 
 
-\chapter{Lightning}\label{ch:lightning}
+\chapter{Theory and Background}\label{ch:lightning}
 Observation of lightning is a  natural part of human history, from early man believing it to be caused by the wrath of deities, to the modern storm chaser utilizing radar observations of precipitation to get the best view of a storm. The scientific study of lightning, on the other hand, is relatively new. The first steps towards systematic study were the experiments performed by Benjamin Franklin, along with the development of the theory of electromagnetism. Only in the last century have we acquired the means to thoroughly investigate the electrical and meteorological mechanisms resulting in a thunderstorm. This is due to both more available measurements and better physical understanding. The measurements are made possible by aircraft being able to fly through storm clouds providing in-situ observations, and satellite imagery providing a view into the vertical composition and structure of clouds.
 
-This chapter briefly explains cloud creation, cloud electrification and lightning, and finally what is known about what separates \acrlong{htl} and \acrlong{fwtl} from natural lightning.
+This chapter briefly explains cloud creation, cloud electrification and lightning, using this to describre what is known about what separates \acrlong{htl} and \acrlong{fwtl} from natural lightning. Finally the \acrfull{hti} is introduced and described.
 
 \section{Convection and cloud creation}
 
@@ -12,6 +12,8 @@ Lightning occurs in storm clouds, and therefore an explanation of cloud creation
 However, if moisture is present at the surface, water vapor will be displaced upwards by this vertical movement. When the air mass is cooled by the expansion, the saturation vapor pressure decreases. Lower saturation vapor pressure favours more water in the condensed phase, either as ice or water particles. Condensation of water vapor heats the ascending air, which causes more vertical movement. Thus, a dry atmosphere is inherently more stable than a humid atmosphere, as the lack of condensation would lead to equilibrium due to adiabatic cooling alone.
 
 If temperatures are sufficiently low ($\leq 0 ^{\circ} C$), the liquid water may freeze to ice crystals. The uncertainty here is due to the heat released when a crystalline surface is created: A typically sized liquid droplet requires a temperature of around $ -38 ^{\circ} C$ or lower to initiate homogeneous freezing (\cite{Skyfysikk}).This leads to relatively clean air containing super-cooled liquid droplets below bulk freezing temperature of $0 ^{\circ} C$. Alternatively, by introducing a surface which the structure can grow on (an ice nucleation particle), this reduces the energy released, thus raising the temperature requirement for freezing initiation up towards the melting temperature (\cite{jeffery1997}). 
+
+Convection is, by its very nature, a chaotic and stochastic process. Convection is the result of turbulent effects, and therefore it is hard to model and forecast. This is abated by use of ensemble prediction systems and fine scale convection-permitting models. 
 
 \section{Cloud electrification}
 
@@ -46,7 +48,7 @@ Winter lightning is a type of natural lightning specifically relevant to \acrsho
 
 Winter lightning is also observed off the west coast of Norway (e.g \cite{march2016}; \cite{koeltzow2018}). Cold air is moved from the Arctic to the Norwegian coast where the ocean is warmed by the North Atlantic Current. The resulting temperature gradient gives rise to convection and subsequent electrification. As a result, there is a convective and electrically active belt along the coast of Norway during the winter, which is seen in the lightning climatology for winter in \cite{koeltzow2018}. Winter lightning also differs from summer lightning storms in that the frequency of lightning strikes is lower and the polarity is often more positive (\cite{michimoto2007}).
  
-\section{Helicopter triggered lightning}
+\section{Helicopter Triggered Lightning}
 A \acrlong{htl} is thought to be triggered by the helicopter's presence, such that the required electric field for this to happen can be much smaller than for natural lightning. This also means that a system that would create an \acrshort{htl} may be hard to identify, as natural lightning needs not precede the \acrshort{htl}. 
 
 Weather phenomena common to \acrshort{htl}-events are (from \cite{lande1999}):
@@ -77,12 +79,12 @@ A positively charged discharge is believed to cause more damage to helicopters t
     \label{fig:triggertyper}
 \end{figure}
 
-\section{Fixed wing triggered lightning}\label{sec:fwtl}
+\section{Fixed wing Triggered Lightning}\label{sec:fwtl}
 
 As introduced in Chapter \ref{ch:introduction}, a \acrfull{fwtl} is a similar phenomenon to \acrshort{htl}: lightning triggered instead by the presence of an airplane or a rocket. The main difference between \acrshort{fwtl} and \acrshort{htl} is that \acrshort{fwtl} is not solely a winter phenomenon; it occurs during all seasons \cite{uman2003}. Presumably, this is because planes fly higher and in a larger range of altitudes than helicopters: In summer, convective clouds can reach the tropopause, causing the electrical parts of the clouds to be spread further up, whilst in winter, the convection is not as deep, and the electrical parts of the clouds are closer to the surface (e.g. \cite{uman2003}; \cite{michimoto2007}).
 
-\section{Helicopter trigger index}\label{sec:hti}
-As stated in Chapter \ref{ch:introduction}, operational forecasting of \acrshort{htl} is relatively new. In Norway, the Norwegian Meteorological Institute began forecasting the risk of \acrshort{htl}, \acrfull{hti}, in 2016. The theory behind the forecast is based on findings by \cite{hardwick1999} and \cite{wilkinson2013}, and \acrshort{hti} is computed from four sub-indices, which are meteorological factors:
+\section{Helicopter Trigger Index}\label{sec:hti}
+As stated in Chapter \ref{ch:introduction}, operational forecasting of \acrshort{htl} is relatively new. In Norway, the Norwegian Meteorological Institute began forecasting the risk of \acrshort{htl}, \acrfull{hti}, in 2016. The theory behind the forecast is based on findings by \cite{hardwick1999} and \cite{wilkinson2013}, and \acrshort{hti} is computed from four sub-indices, which are based on the following meteorological factors:
 \begin{itemize}
     \item \textbf{Vertical wind speed} in the altitude that helicopters generally fly in.
     \begin{itemize}
@@ -101,6 +103,7 @@ As stated in Chapter \ref{ch:introduction}, operational forecasting of \acrshort
         \item Computed from the maximum precipitation within the 7 nearest grid cells in the forecasting model.
         \item Linear from $0\frac{mm}{hr}$ with 0 value to full value at $0.75\frac{mm}{hr}$ precipitation intensity.
         \item Figure \ref{fig:precipitation} shows the conversion between precipitation intensity in $mm/hr$ and this sub-index.
+        \item An error in the system producing the \acrshort{hti} was found to be using the Accumulated total precipitation, and is described in \ref{sec:precipbug}
     \end{itemize}
     \item \textbf{Low clouds} in the surrounding area.
     \begin{itemize}
@@ -141,16 +144,18 @@ As stated in Chapter \ref{ch:introduction}, operational forecasting of \acrshort
     \label{fig:subindices}
 \end{figure}
 
-The \acrshort{hti} is the sum of these four sub-indices, \[\text{HTI} = \frac{\text{Vertical Wind}}{4} + \frac{\text{Temperature}}{4} + \frac{\text{Precipitation}}{4} +\frac{\text{Cloud}}{4}\] equally weighted, such that \acrshort{hti} is valued in the range $[0,1]$. The index is categorized in four different classes of severity, from no danger (White) to very high risk (Red). (See figure \ref{fig:hti}).
+To prevent under-forecasting due to convection being placed incorrectly in the forecast system, the vertical velocity, cloud and precipitation parameters use a neighbourhood approach to capture the spatial variation. The total \acrshort{hti} is the sum of these four sub-indices, \[\text{HTI} = \frac{\text{Vertical Wind}}{4} + \frac{\text{Temperature}}{4} + \frac{\text{Precipitation}}{4} +\frac{\text{Cloud}}{4}\] equally weighted, such that \acrshort{hti} is valued in the range $[0,1]$. The index is categorized in four different classes of severity, from no danger (White) to very high risk (Red). See figure \ref{fig:hti} for example and \ref{fig:HTIRISK} for procedures.
 \begin{itemize}
     \item White: $HTI < 0.73$
     \item Yellow: $0.73 \leq HTI < 0.90 $
     \item Orange: $0.90 \leq HTI < 0.99 $
     \item Red: $0.99 \leq HTI $
 \end{itemize}
-The severity categories are based on discussion with the main offshore helicopter operators in Norway (Bristow and CHC), and are changed if deemed necessary after the yearly evaluation of the season. \acrshort{hti} is not based on a regression analysis, but rather a subjective review of the earlier cases of incidents.
+The severity categories are based on discussion with the main offshore helicopter operators in Norway (Bristow and CHC), and are changed if deemed necessary after the yearly evaluation of the season. \acrshort{hti} is not based on a regression analysis, but rather a subjective review of the earlier cases of incidents. 
 
-When trying to recreate the \acrshort{hti}-functions, it became apparent that the operational forecast had been wrongly using the accumulated precipitation and not the intended hourly precipitation. This shifted some of the investigation into whether this erroneous use of the accumulated precipitation had led to any significant over-forecasting of \acrshort{htl}. The result of this would be limiting helicopter flights when there had been precipitation forecast earlier. Thus, any precipitation would lead to the precipitation sub-index to take the value one ($1$) (the maximum) for the rest of the forecast. For example, precipitation during the first hour of a forecast could wrongly overestimate the \acrshort{hti} of the following 17 hours of forecast made available to the flight planner. 
+\subsection{Precipitation error in HTI}\label{sec:precipbug}
+
+When trying to recreate the \acrshort{hti}-functions during the work , it became apparent that the operational forecast had been wrongly using the accumulated precipitation and not the intended hourly precipitation. This shifted some of the investigation into whether this erroneous use of the accumulated precipitation had led to any significant over-forecasting of \acrshort{htl}. The result of this would be limiting helicopter flights when there had been precipitation forecast earlier. Thus, any precipitation would lead to the precipitation sub-index to take the value one ($1$) (the maximum) for the rest of the forecast. For example, precipitation during the first hour of a forecast could wrongly overestimate the \acrshort{hti} of the following 17 hours of forecast made available to the flight planner. 
 
 \begin{figure}
     \centering

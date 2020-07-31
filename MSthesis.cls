@@ -20,6 +20,7 @@
 \usepackage{geometry}
 \usepackage{emptypage}
 \usepackage{physics}
+\usepackage{enumitem}
 \usepackage{algorithm}
 \usepackage[parfill]{parskip} % removes indentation of sectioning.
 \usepackage{comment}
